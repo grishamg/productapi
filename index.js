@@ -3,8 +3,18 @@ const express = require( 'express' );
 const mongoose = require( 'mongoose' );
 const app = express();
 const port = process.env.PORT || 5000
+const productRoute = require( './routes/productroute' )
 
-// connect to mongodb atlas at 
+
+// middlewares
+app.use( express.json() );
+app.use( express.urlencoded( { extended: true } ) ); // data can have arrays as well not only strings
+// connect to mongodb atlas at
+
+
+//apis :
+app.use( '/api/product', productRoute );
+
 mongoose.connect( process.env.MONGODB_URL, { useNewUrlParser: true } ).then( () =>
 {
     console.log( "Connected in the MongoDB Database" )
