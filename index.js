@@ -16,7 +16,7 @@ app.use( express.urlencoded( { extended: true } ) ); // data can have arrays as 
 app.use( function ( req, res, next )
 {
     res.header( "Access-Control-Allow-Origin", "/api/product" );
-    res.header( "Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept" );
+    res.header( "Access-Control-Allow-Headers" );
     next();
 } )
 
