@@ -2,9 +2,8 @@ require( 'dotenv' ).config();
 const express = require( 'express' );
 const mongoose = require( 'mongoose' );
 const app = express();
-const port = process.env.PORT || 5000
+const port = process.env.PORT || 5000;
 const productRoute = require( './routes/productroute' )
-
 
 // middlewares
 app.use( express.json() );
@@ -13,7 +12,14 @@ app.use( express.urlencoded( { extended: true } ) ); // data can have arrays as 
 
 
 //apis :
-app.use( '/api/product', productRoute );
+// app.use( '/api/product', productRoute );
+app.use( function ( req, res, next )
+{
+    res.header( "Access-Control-Allow-Origin", "/api/product" );
+    res.header( "Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept" );
+    next();
+} )
+
 
 mongoose.connect( process.env.MONGODB_URL, { useNewUrlParser: true } ).then( () =>
 {
