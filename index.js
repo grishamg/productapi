@@ -12,13 +12,13 @@ app.use( express.urlencoded( { extended: true } ) ); // data can have arrays as 
 
 
 //apis :
-// app.use( '/api/product', productRoute );
-app.use( function ( req, res, next )
-{
-    res.header( "Access-Control-Allow-Origin", "/api/product" );
-    res.header( "Access-Control-Allow-Headers" );
-    next();
-} )
+app.use( '/api/product', productRoute );
+// app.use( function ( req, res, next )
+// {
+//     res.header( "Access-Control-Allow-Origin", '/api/product' );
+//     res.header( "Access-Control-Allow-Headers" );
+//     next();
+// } )
 
 
 mongoose.connect( process.env.MONGODB_URL, { useNewUrlParser: true } ).then( () =>

@@ -16,6 +16,7 @@
 		"mongoose": "^6.3.1",
 		"yup": "^0.32.11"
 	},
+	"proxy": "https://api.darksky.net",
 	"devDependencies": {
 		"nodemon": "^2.0.15"
 	}
