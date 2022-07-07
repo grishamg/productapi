@@ -2,10 +2,12 @@ require( 'dotenv' ).config();
 const express = require( 'express' );
 const mongoose = require( 'mongoose' );
 const app = express();
+const cors = require( 'cors' );
 const port = process.env.PORT || 5000;
 const productRoute = require( './routes/productroute' )
 
 // middlewares
+app.use( cors );
 app.use( express.json() );
 app.use( express.urlencoded( { extended: true } ) ); // data can have arrays as well not only strings
 // connect to mongodb atlas at
